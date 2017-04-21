@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { Customer } from './model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,12 +10,17 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent  {
-  name = 'Bill Murray';
-  city = 'SomeTown';
-  street = '123 Belmont'
-  region = 'West';
-  hideAddress = false;
+  
+  customer: Customer = {
+    id: 1,
+    name: 'Bill Murray',
+    address: {
+      city: 'SomeTown',
+      street: '123 Belmont',
+      state: 'Texas',
+      region: 'West'
+    }
+  };
 
-  image = 'favicon.ico';
-  color = 'red';
+  hideAddress = false;
 }
