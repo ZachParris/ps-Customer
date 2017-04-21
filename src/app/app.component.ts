@@ -8,20 +8,12 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent  {
-  name = 'Alex Smith';
+  name = 'Bill Murray';
+  city = 'SomeTown';
+  street = '123 Belmont'
+  region = 'West';
+  hideAddress = false;
+
   image = 'favicon.ico';
   color = 'red';
-  region = 'West';
-
-  clicked() {
-    this.color = this.color === 'red' ? 'blue' : 'red';
-  }
-
-  colorChange(color: string) {
-    this.color = color;
-  }
-
-  regionChange(region: string){
-    this.region = region;
-  }
 }

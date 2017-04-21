@@ -1,29 +1,39 @@
 <h1>{{name}}</h1>
 
-  <fieldset>
-    <!-- <img src={{image}}/> -->
-    <!-- <img src="{{image}}"/> -->
-    <img [src]="image"/>
-  </fieldset>
+ <p><i>{{name}} is at {{street}} in {{city}} in the {{region}} region.</i></p>
 
   <fieldset>
-    <label [style.color]="color">Favorite Color</label>
-    <button (click)="clicked()">Toggle color</button>
-
-    <!-- <select #selector (change)="colorChange(selector.value)"> -->
-
-    <select (change)="colorChange($event.target.value)">
-      <option>red</option>
-      <option>blue</option>
-      <option>green</option>
-    </select>
-
-    <select (change)="regionChange($event.target.value)">
-      <option>North</option>
-      <option>South</option>
-      <option>East</option>
-      <option>West</option>
-    </select>
+    <label>
+      Name:
+      <input [(ngModel)]="name" placeholder="Customer name">
+    </label>
   </fieldset>
 
-  <p>{{name}} is from the {{region}}</p>
+  <br>
+  <label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
+
+  <div [hidden]="hideAddress">
+    <h3>Address:</h3>
+    <fieldset>
+      <label>
+        Street: 
+      <input [(ngModel)]="street" placeholder="Street">
+      </label><br/>
+      <label>
+        City: 
+        <input [(ngModel)]="city" placeholder="City">
+        </label>
+      <label><br/>
+        Region:
+        <select [(ngModel)]="region">
+          <option>North</option>
+          <option>South</option>
+          <option>East</option>
+          <option>West</option>
+        </select>
+      </label>
+    </fieldset>
+  </div>
+  
+
+  
