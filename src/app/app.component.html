@@ -1,48 +1,53 @@
-<h1>{{customer.name}}</h1>
+<h1>Customers</h1>
+<div>
+  <p><i>Select a customer</i></p>
+  <ul>
+    <li *ngFor="let cust of customers" [ngClass]="{selected: customer===cust}" (click)="customer=cust">{{cust.name}}</li>
+  </ul>
 
- <p><i>{{customer.name}} is at {{customer.address.street}} in {{customer.address.city}}, {{customer.address.state}} in the {{customer.address.region}} region.</i></p>
 
-  <fieldset>
-    <label>
+  <div *ngIf="customer">
+    <h1>{{customer.name}}</h1>
+
+    <p><i>{{customer.name}} is at {{customer.address.street}} in {{customer.address.city}}, {{customer.address.state}} in the {{customer.address.region}} region.</i></p>
+
+    <fieldset>
+      <label>
       Name:
       <input [(ngModel)]="customer.name">
     </label>
-  </fieldset>
+    </fieldset>
 
-  <br>
-  <label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
+    <br>
+    <label><input type="checkbox" [(ngModel)]="hideAddress">Hide Address</label>
 
-  <div [hidden]="hideAddress">
-    <h3>Address:</h3>
-    <fieldset>
-      <label>
+    <div [hidden]="hideAddress">
+      <h3>Address:</h3>
+      <fieldset>
+        <label>
         Street: 
       <input [(ngModel)]="customer.address.street">
       </label><br/>
-      <label>
+        <label>
         City: 
         <input [(ngModel)]="customer.address.city">
         </label>
         <label><br/>
         State:
         <select [(ngModel)]="customer.address.state">
-          <option>TX</option>
-          <option>TN</option>
-          <option>IL</option>
-          <option>CA</option>
+          <option>California</option>
+          <option>Quebec</option>
+          <option>Jalisco</option>
+          <option>Illinois</option>
         </select>
       </label>
-      <label><br/>
+        <label><br/>
         Region:
         <select [(ngModel)]="customer.address.region">
-          <option>North</option>
-          <option>South</option>
-          <option>East</option>
-          <option>West</option>
+          <option *ngFor="let region of regions">{{region}}</option>
         </select>
       </label>
-    </fieldset>
+      </fieldset>
+    </div>
   </div>
-  
-
-  
+</div>
