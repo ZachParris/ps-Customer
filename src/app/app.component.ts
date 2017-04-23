@@ -11,6 +11,7 @@ import { Customer } from './model';
 
 export class AppComponent  {
   regions = ['West', 'East', 'North', 'South', 'Midwest'];
+  states = ["California", "Quebec", "Jalisco", "Illinois"]
 
   customers: Customer[] = [
     {
@@ -58,5 +59,5 @@ export class AppComponent  {
   customer: Customer = this.customers[0];
 
 
-  hideAddress = false;
+  showAddress = true;
 }
