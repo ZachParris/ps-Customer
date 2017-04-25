@@ -13,27 +13,5 @@
 <label><input type="checkbox" [(ngModel)]="showAddress">Show Address</label>
 
 <div *ngIf="showAddress">
-  <h3>Address:</h3>
-  <fieldset>
-    <label>
-        Street: 
-      <input [(ngModel)]="customer.address.street">
-      </label><br/>
-    <label>
-        City: 
-        <input [(ngModel)]="customer.address.city">
-        </label>
-    <label><br/>
-        State:
-        <select [(ngModel)]="customer.address.state">
-          <option *ngFor="let state of states">{{state}}</option>
-        </select>
-      </label>
-    <label><br/>
-        Region:
-        <select [(ngModel)]="customer.address.region">
-          <option *ngFor="let region of regions">{{region}}</option>
-        </select>
-      </label>
-  </fieldset>
+ <my-address [address]="customer.address"></my-address>
 </div>
