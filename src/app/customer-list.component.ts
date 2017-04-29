@@ -14,6 +14,7 @@ import { LoggerService } from './logger.service';
 export class CustomerListComponent implements OnInit  {
   customers: Customer[] = []; 
   customer: Customer;
+  isBusy = false;
 
   constructor(
     private dataService: DataService, 
@@ -24,8 +25,8 @@ export class CustomerListComponent implements OnInit  {
   }
 
   getCustomers() {
+    this.isBusy = true;
     this.loggerService.log("Getting Customers...")
-    //this.customers = this.dataService.getCustomers();
     this.dataService.getCustomers().then(custs => {
       this.customers = custs;
     });
