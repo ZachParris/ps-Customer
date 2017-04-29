@@ -20,8 +20,15 @@ export class CustomerListComponent implements OnInit  {
     private loggerService: LoggerService) {};
 
   ngOnInit(){
+    this.getCustomers();
+  }
+
+  getCustomers() {
     this.loggerService.log("Getting Customers...")
-    this.customers = this.dataService.getCustomers();
+    //this.customers = this.dataService.getCustomers();
+    this.dataService.getCustomers().then(custs => {
+      this.customers = custs;
+    });
   }
 
   shift(increment: number){
